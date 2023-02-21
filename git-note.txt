@@ -1,0 +1,116 @@
+
+-------------------------------------------GIT Course-------------------------------------------
+
+4. Git config
+- git config --list --show-origin: check complete git config
+- git config --global --unset user.name: Remove a specific setting for a specific level of config
+- git config --global --remove-section user: Remove the specific section
+
+5. Add git username and user email for local repo
+- git config --local user.name 
+- git config --local user.email
+
+13. Rename and Delete branch using git branch -m and the -d commands
+- Rename(đổi tên branch đang đứng): git branch -m tenBranchMoi
+- Delete: git branch -d tenBranch
+
+14. Git merge branch
+- git merge <tên nhánh>
+- VD có 2 nhánh A và B tiến hành merge B vào A
+  . B1. git checkout [nhánh A]
+  . B2. git merge B
+- Xử lý conflict khi merge code
+  . Đoạn code bị xung đột đc bắt đầu bằng <<<<<HEAD và kết thúc tại >>>>>
+  . Sửa conflict xong thì tiến hành đưa lại nội dung lên branch được merge vào
+  . B1. Tiến hành sửa conflict
+  . B2. Sau khi sửa thì tiến hàng đưa lại code muốn merge lên nhánh muốn merge
+  git add .
+  git commit -m "sửa conflict"
+  
+15. Xóa branch
+  - Khi toàn bộ dữ liệu trên branch đó đã đc merge vào master thì dùng lệnh sau để xóa
+   . git branch -d <tên branch cần xóa>
+   . Chú ý: với câu lệnh trên thì bắt buộc dữ liệu trên nhánh đó phải được merge vào master, ko sẽ báo lỗi
+  - Trường hợp branch muốn xía chưa đc merge vào master thì dùng câu lệnh
+   . git branch -D <tên branch cần xóa>
+   
+16. Lệnh tra lại lịch sử
+  git lig
+  
+17. Xem trạng thái hiện tại của 1 nhánh
+  git status
+  
+18. Thay đổi nội dung commit trước
+  - Sửa lại message commit bị nhầm
+    git commit --amend
+  - Trường hợp add thiếu file hoặc sửa lại file đã commit
+    git add [file bị thiếu hoặc file cần sửa lại]
+    git commit --amend
+    
+19. Undo lại commit
+  - Trường hợp 1: Muốn undo thay đổi trên 1 file cố định trước khi commit
+    git checkout -- [đường dẫn/tên file]
+  - Nếu muốn undo hẳn 1 commit (do đã lỡ commit xong rồi) thì cần chỉ định mục tiêu
+    git reset --soft HEAD~1
+    Ở đây HEAD~1 có nghĩa là trước 1 commit. soft để lưu lại những thay đổi chưa commit và chỉ bỏ đi phần đã commit từ lần trước
+  - Nếu muốn bỏ đi cả phần đã commit từ trước và phần chưa commit thì sửa soft thành hard
+    git reset --hard HEAD~1
+  
+  
+20. Git clean
+  - Xóa hết các files chưa được commit
+    git clean --force
+    
+21. Thay đổi tên tác giả của commit 
+  git config user.name "tanhun"
+  git config user.email "tanhoang0710@gmail.com"
+  git commit --amend --reset-author
+  
+
+22. Thêm remote repo vào local repo
+  - Thêm vào
+    git remote add origin [git url]
+  - Check lại xem thêm vào ok hay chưa
+    git remote -v
+  - Thay đổi link
+    git remote set-url origin [git url]
+
+23. Khi đang làm trên 1 nhánh mà cần chuyển sang nhánh khác để làm việc, cần lưu lại tạm dữ liệu
+  Trước khi chuyển nhánh cần dùng câu lệnh
+  git stash save
+  git stash list 
+  git stash apply stash@{0}
+  git stash drop stash@{0}
+  git stash -u có thể stash cả các Untracked Files	 
+
+
+
+TAGGING
+- Đặt tên cho 1 commit nào đấy quan trọng
+- list ra các test: 
+  git tag
+- Tìm kiếm 1 tag cụ thể: 
+  git tag -l "v1.8"
+- Tạo tag
+  . Có 2 loại: lightweight và annotated
+    lightweight: dùng cho để trỏ vào một commit
+    annotated: are stored as full objects in the Git database
+  . Tạo mới 1 annotated tag:
+    git tag -a [tên tag] -m "message"
+    git show [tên tag]
+  . Tạo mới 1 lightweight tag:
+    git tag [tên tag]
+- Sharig tag (Đưa tag lên remote)
+  . git push origin [tên tag]
+  . Đưa hết: git push origin --tags
+- Checkout từ 1 tag
+  git checkout -b [tên nhánh] [tên tag]  
+- Xóa tag:
+  . local: git tag -d [tên tag]
+  . remote: git push [tên remote] --delete [tên tag]
+  . list ra các danh sách tag ở remote: git ls-remote -tags
+
+
+  
+  
+  
