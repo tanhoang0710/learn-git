@@ -46,6 +46,7 @@
   - Trường hợp add thiếu file hoặc sửa lại file đã commit
     git add [file bị thiếu hoặc file cần sửa lại]
     git commit --amend
+  git push origin [tên nhánh] -f
     
 19. Undo lại commit
   - Trường hợp 1: Muốn undo thay đổi trên 1 file cố định trước khi commit
