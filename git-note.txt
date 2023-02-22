@@ -121,3 +121,4 @@ git config --global alias.st status
   
   
   
+** Nhớ không git push vội
