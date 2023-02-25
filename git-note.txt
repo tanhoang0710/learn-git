@@ -121,4 +121,43 @@ git config --global alias.st status
   
   
   
-** Nhớ không git push vội
+** Nhớ không git push 
+
+
+
+
+FORKING PROJECTS
+- If you want to contribute to an existing project u dont have push access, you can fork the project
+- What this means is that github will make a copy of the project that is entirely yours, it lives in your user's namespace, and you can push to it.
+- In Github, a fork is simply the same project in your own namespace, allowing you to make changes to a project publicly as a way to the contribute in a more open manner
+- This way, projects dont have to worry about adding users as collaborators to give them push access. People can fork project, push to it, and contribute their changes back to the original repository by creating what's called a Pull Request, which we'll cover next
+
+
+
+
+THE GITHUB FLOW
+- GitHub is designed around a particular collaboration workflow, centerd on Pull Requests
+- This flow works whether u'r collaborating with a tightly-knit team in a single shared repository, or a globally-distributed company or network of strangers contributing to a project through dozens of fork
+- Here is how it generally works:
+  . Create a topic branch from master
+  . Make some commits to improve the project
+  . Push this branch to your Github project
+  . Open a pull request on github
+  . Discuss, and optionally continue committing
+  . THe project owner merges or closes the pull request
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
